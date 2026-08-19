@@ -131,7 +131,10 @@
 
         <h2>My Tasks</h2>
         <button onclick="addTask()">➕ Add Task</button>
-        <table>
+        <div id="taskForm" style="display: none; margin-top: 20px;">
+    <input type="text" id="taskName" placeholder="Task name">
+    <button onclick="saveTask()">Save Task</button>
+</div>        <table>
             <tr>
                 <th>Task</th>
                 <th>Priority</th>
@@ -166,7 +169,15 @@
 </div>
 <script>
 function addTask() {
-    alert("New task button works! 🎉");
-}
-</script></body>
+     document.getElementById("taskForm").style.display = "block";}
+    function saveTask() {
+    const taskName = document.getElementById("taskName").value;
+
+    if (taskName.trim() === "") {
+        alert("Please enter a task name.");
+        return;
+    }
+
+    alert("Task saved: " + taskName);
+}</script></body>
 </html>
