@@ -133,9 +133,15 @@
         <button onclick="addTask()">➕ Add Task</button>
         <div id="taskForm" style="display: none; margin-top: 20px;">
     <input type="text" id="taskName" placeholder="Task name">
-    <button onclick="saveTask()">Save Task</button>
-</div>        <table>
-            <tr>
+            <select id="taskPriority">
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+</select>
+<button onclick="saveTask()">Save Task</button>
+</div>
+<table>
+ <tr>
                 <th>Task</th>
                 <th>Priority</th>
                 <th>Status</th>
@@ -163,14 +169,16 @@
                 <td>0%</td>
             </tr>
         </table>
-
+        <div id="taskList"></div>
     </div>
 
 </div>
 <script>
 function addTask() {
-     document.getElementById("taskForm").style.display = "block";}
-    function saveTask() {
+    document.getElementById("taskForm").style.display = "block";
+}
+
+function saveTask() {
     const taskName = document.getElementById("taskName").value;
 
     if (taskName.trim() === "") {
@@ -178,6 +186,8 @@ function addTask() {
         return;
     }
 
-    alert("Task saved: " + taskName);
-}</script></body>
+    document.getElementById("taskList").innerHTML += "<p>✅ " + taskName + "</p>";
+}
+</script>
+</body>
 </html>
