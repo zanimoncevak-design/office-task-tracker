@@ -187,7 +187,11 @@ function saveTask() {
     }
 
     document.getElementById("taskList").innerHTML += "<p>✅ " + taskName + "</p>";
-}
+    localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);}
+window.onload = function() {
+    document.getElementById("taskList").innerHTML =
+        localStorage.getItem("tasks") || "";
+};
 </script>
 </body>
 </html>
