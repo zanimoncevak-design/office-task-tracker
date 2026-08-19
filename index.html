@@ -4,18 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Office Task Tracker</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            color: #777;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .tasks {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            color: #777;
+        }
+
+        .done {
+            color: green;
+            font-weight: bold;
+        }
+
+        .progress {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .todo {
+            color: #777;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tasks {
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Office Task Tracker</h1>
+<div class="container">
 
-    <h2>My Tasks</h2>
+    <h1>📋 Office Task Tracker</h1>
+    <p class="subtitle">Simple dashboard for managing daily office tasks</p>
 
-    <ul>
-        <li>Check documents — Done</li>
-        <li>Prepare report — In Progress</li>
-        <li>Send email — To Do</li>
-    </ul>
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Tasks</h3>
+            <div class="number">3</div>
+        </div>
+
+        <div class="card">
+            <h3>Completed</h3>
+            <div class="number">1</div>
+        </div>
+
+        <div class="card">
+            <h3>In Progress</h3>
+            <div class="number">1</div>
+        </div>
+
+    </div>
+
+    <div class="tasks">
+
+        <h2>My Tasks</h2>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Progress</th>
+            </tr>
+
+            <tr>
+                <td>Check documents</td>
+                <td>High</td>
+                <td class="done">Done</td>
+                <td>100%</td>
+            </tr>
+
+            <tr>
+                <td>Prepare report</td>
+                <td>Medium</td>
+                <td class="progress">In Progress</td>
+                <td>60%</td>
+            </tr>
+
+            <tr>
+                <td>Send email</td>
+                <td>Low</td>
+                <td class="todo">To Do</td>
+                <td>0%</td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
 
 </body>
 </html>
