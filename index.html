@@ -186,8 +186,28 @@ function saveTask() {
         return;
     }
 
-    document.getElementById("taskList").innerHTML += "<p>✅ " + taskName + "</p>";
-    localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);}
+    const task = document.createElement("p");
+
+    task.innerHTML = "✅ " + taskName +
+        ' <button onclick="deleteTask(this)">Delete</button>';
+
+    document.getElementById("taskList").appendChild(task);
+
+    localStorage.setItem(
+        "tasks",
+        document.getElementById("taskList").innerHTML
+    );
+}
+
+function deleteTask(button) {
+    button.parentElement.remove();
+
+    localStorage.setItem(
+        "tasks",
+        document.getElementById("taskList").innerHTML
+    );
+}
+
 window.onload = function() {
     document.getElementById("taskList").innerHTML =
         localStorage.getItem("tasks") || "";
