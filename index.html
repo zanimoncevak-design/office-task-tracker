@@ -180,7 +180,7 @@ function addTask() {
 
 function saveTask() {
     const taskName = document.getElementById("taskName").value;
-
+    const taskPriority = document.getElementById("taskPriority").value;
     if (taskName.trim() === "") {
         alert("Please enter a task name.");
         return;
@@ -189,8 +189,8 @@ function saveTask() {
     const task = document.createElement("p");
 
     task.innerHTML = "✅ " + taskName +
-        ' <button onclick="deleteTask(this)">Delete</button>';
-
+    " — " + taskPriority +
+    ' <button onclick="deleteTask(this)">Delete</button>'; 
     document.getElementById("taskList").appendChild(task);
 
     localStorage.setItem(
