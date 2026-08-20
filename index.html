@@ -207,10 +207,9 @@ function deleteTask(button) {
         document.getElementById("taskList").innerHTML
     );
 }
-
 window.onload = function() {
-    localStorage.removeItem("task");
-    document.getElementById("taskList").innerHTML = "";
+    document.getElementById("taskList").innerHTML =
+        localStorage.getItem("tasks") || "";
 };
 </script>
 </body>
